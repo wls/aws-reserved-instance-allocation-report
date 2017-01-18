@@ -24,11 +24,20 @@ of how to best reallocate servers, especially across availability zones.
 IMPORTANT NOTE: I use this script on an EC2 instance with an AMI Role,
 so there's no AWS secrets baked into the script.
 
+SHORTCOMING: Amazon recently announced a new class of Reserved Instances
+called Regional, which will provide discounted prices regardless of availabilty
+zone. This implementation does not know how to handle the data (yet?); using
+it will manifest as an 'undefined' column showing the correct number of
+reserved instances in grey, but it will not show spot-instances in other
+availability zones as if they were in the Regional column. I'm pondering
+a good way to represent both location and costing, as they can now be in
+two different columns simultaneously.
+
 
 Prerequsite: NodeJS with npm
 ----------------------------
 Instructions for installing NodeJS by [source or package](https://nodejs.org/en/download/)
-are online.
+are online. This version was tested with Node v6.9.4.
 
 
 Install From GitHub
